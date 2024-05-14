@@ -246,8 +246,11 @@
     <Content Include="images\abt-3.jpg" />
     <Content Include="images\arrow.png" />
     <Content Include="images\bnr-1.jpg" />
+    <Content Include="images\bnr-1.png" />
     <Content Include="images\bnr-2.jpg" />
+    <Content Include="images\bnr-2.png" />
     <Content Include="images\bnr-3.jpg" />
+    <Content Include="images\bnr-3.png" />
     <Content Include="images\c-1.jpg" />
     <Content Include="images\c-2.jpg" />
     <Content Include="images\c-3.jpg" />
@@ -457,6 +460,7 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Shared\CartMenu.cshtml" />
     <Content Include="Views\Shared\UserMenu.cshtml" />
+    <Content Include="Views\Product\_DienThoai.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="col-md-4">
-                            @Html.ValidationMessageFor(model => model.SOLUONG, "", new { @class = "text-danger", @style = "color: red" })
+                       0     @Html.ValidationMessageFor(model => model.SOLUONG, "", new { @class = "text-danger", @style = "color: red" })
                             <label class="control-label">Số lượng</label>
                             <input type="number" class="form-control" id="SOLUONG" name="SOLUONG" placeholder="" required value="@Model.SOLUONG" min="1" />
                         </div>
@@ -62,7 +62,6 @@
                             <div class="col-md-4">
                                 <label class="control-label">Đơn giá(VNĐ)</label>
                                 @Html.TextBoxFor(x => x.DONGIA, new {@class = "form-control", @id= "DONGIA" })
-                                @*<input type="number" class="" id="DONGIA" name="DONGIA" required value="@Model.DONGIA" min="100000"/>*@
                             </div>
                         </div>                           
                 </div>

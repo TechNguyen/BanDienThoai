@@ -101,10 +101,7 @@ namespace BanDienThoai.Models.Service
             }
             return result;
         }
-        /// <summary>
-        /// Service load sản phẩm nam
-        /// </summary>
-        /// <returns></returns>
+    
         public static List<ProductViewModel> LoadProductMen()
         {
             BANDIENTHOAIEntities db = new BANDIENTHOAIEntities();
@@ -125,10 +122,7 @@ namespace BanDienThoai.Models.Service
             }
             return result;
         }
-        /// <summary>
-        /// Service load sản phẩm nữ
-        /// </summary>
-        /// <returns></returns>
+
         public static List<ProductViewModel> LoadProductWomen()
         {
             BANDIENTHOAIEntities db = new BANDIENTHOAIEntities();

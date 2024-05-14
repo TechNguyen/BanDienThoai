@@ -92,20 +92,20 @@ namespace BanDienThoai.Areas.Admin.Controllers
                 sp.MALOAISP = sanpham.MALOAISP;
                 sp.HINHLON = sanpham.HINHLON;
                 sp.HINHNHO = sanpham.HINHLON.Split('.')[0];
-                if (productService.addProduct(sp))
+
+				ViewBag.ThuongHieu = productService.getDropDownThuongHieu() as List<SelectListItem>;
+				ViewBag.LoaiSanPham = productService.getDropDownLoaiSanPham() as List<SelectListItem>;
+				if (productService.addProduct(sp))
                 {
                     ViewBag.message = "Thêm mới sản phẩm thành công";
-                    sanpham = new ProductViewModel();
-                    return View(sanpham);
+                    return View();
                 } else
                 {
 					ViewBag.message = "Có lỗi xảy ra";
-					return View(sanpham);
-
+					return View();
 				}
             }
-            
-            return View(sanpham);
+            return View();
            
         }
 

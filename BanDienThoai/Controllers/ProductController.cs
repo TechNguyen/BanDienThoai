@@ -34,13 +34,20 @@ namespace BanDienThoai.Controllers
                     prctViewModel.ListProductCategory = ProductCategoryService.LoadProductWomen();
                 }
             }
-
             int totalRecord = prctViewModel.ListProductCategory.Count;
             prctViewModel.CateKey = cateKey;
             prctViewModel.Index = page;
             prctViewModel.TotalPage= (int)(Math.Ceiling(((double)totalRecord / pageSize)));
 
-            return View(prctViewModel);
+
+            if(cateKey == "dien-thoai")
+            {
+                return PartialView("",prctViewModel);
+            } else
+            {
+				return PartialView("", prctViewModel);
+			}
+			return View(prctViewModel);
         }
 
         public JsonResult ListName(String q)
