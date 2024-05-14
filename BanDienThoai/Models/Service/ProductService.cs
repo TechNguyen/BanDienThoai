@@ -13,11 +13,6 @@ namespace BanDienThoai.Models.Service
         {
             List<SANPHAM> ListProductsSelling = null;
 
-            // nghiệp vụ
-            // * Nếu ngày lấy danh sách trước ngày 15 hàng tháng thì sẽ lấy danh sách tháng trước
-            // * Lấy ra danh sách sản phẩm bán chạy trong tháng đó
-            // * Nếu danh sách lấy ra là null thì trả về danh sách 3 sản phẩm mới nhất
-
             int Month = DateTime.Today.Month;
             int Year = DateTime.Today.Year;
             if (DateTime.Today.Day < 15)

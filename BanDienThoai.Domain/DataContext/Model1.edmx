@@ -96,6 +96,7 @@
           <Property Name="MALOAISP" Type="char" MaxLength="7" />
           <Property Name="DONGIA" Type="float" />
           <Property Name="GIAKM" Type="float" />
+          <Property Name="TypeProduct" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="TAIKHOAN">
           <Key>
@@ -380,6 +381,7 @@
           <Property Name="MALOAISP" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
           <Property Name="DONGIA" Type="Double" />
           <Property Name="GIAKM" Type="Double" />
+          <Property Name="TypeProduct" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CHITIETDONHANGs" Relationship="Self.FK_CTDH_SP" FromRole="SANPHAM" ToRole="CHITIETDONHANG" />
           <NavigationProperty Name="CHITIETKMs" Relationship="Self.FK_CTKM_SP" FromRole="SANPHAM" ToRole="CHITIETKM" />
           <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK_SP_LSP" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
@@ -666,6 +668,7 @@
                 <ScalarProperty Name="MALOAISP" ColumnName="MALOAISP" />
                 <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
                 <ScalarProperty Name="GIAKM" ColumnName="GIAKM" />
+                <ScalarProperty Name="TypeProduct" ColumnName="TypeProduct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -28,5 +28,8 @@ namespace BanDienThoai.Areas.Admin.Models
         public string MALOAISP { get; set; }
         [Required]
         public double DONGIA { get; set; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập trường này")]
+        public string LOAISANPHAM { get; set; }
     }
 }

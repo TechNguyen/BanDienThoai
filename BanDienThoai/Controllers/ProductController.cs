@@ -27,11 +27,11 @@ namespace BanDienThoai.Controllers
             {
                 if(cateKey == "dien-thoai")
                 {
-                    prctViewModel.ListProductCategory = ProductCategoryService.LoadProductMen();
+                    prctViewModel.ListProductCategory = ProductCategoryService.LoadProductPhone();
                 }
                 else
                 {
-                    prctViewModel.ListProductCategory = ProductCategoryService.LoadProductWomen();
+                    prctViewModel.ListProductCategory = ProductCategoryService.LoadProductPhuKien();
                 }
             }
             int totalRecord = prctViewModel.ListProductCategory.Count;
@@ -42,12 +42,14 @@ namespace BanDienThoai.Controllers
 
             if(cateKey == "dien-thoai")
             {
-                return PartialView("",prctViewModel);
-            } else
+                return PartialView("_DienThoai",prctViewModel);
+            } else if(cateKey == "phu-kien")
             {
-				return PartialView("", prctViewModel);
-			}
-			return View(prctViewModel);
+				return PartialView("_PhuKien", prctViewModel);
+			} else
+            {
+                return View(prctViewModel);
+            }
         }
 
         public JsonResult ListName(String q)

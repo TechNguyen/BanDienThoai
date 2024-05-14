@@ -91,6 +91,7 @@ namespace BanDienThoai.Areas.Admin.Controllers
                 sp.DONGIA = sanpham.DONGIA;
                 sp.MALOAISP = sanpham.MALOAISP;
                 sp.HINHLON = sanpham.HINHLON;
+                sp.TypeProduct = sanpham.LOAISANPHAM;
                 sp.HINHNHO = sanpham.HINHLON.Split('.')[0];
 
 				ViewBag.ThuongHieu = productService.getDropDownThuongHieu() as List<SelectListItem>;

@@ -461,6 +461,7 @@
     <Content Include="Views\Shared\CartMenu.cshtml" />
     <Content Include="Views\Shared\UserMenu.cshtml" />
     <Content Include="Views\Product\_DienThoai.cshtml" />
+    <Content Include="Views\Product\_PhuKien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

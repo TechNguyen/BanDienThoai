@@ -5,4 +5,10 @@ Alter table [dbo].[SANPHAM]
 add GIAKM float
 
 
+alter table [dbo].[SANPHAM]
+add TypeProduct varchar(100)
+
+
+
+
 

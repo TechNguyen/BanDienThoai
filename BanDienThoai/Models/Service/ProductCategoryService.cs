@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using BanDienThoai.Constant;
 using BanDienThoai.Domain.DataContext;
 using BanDienThoai.Models.ViewModel;
 
@@ -9,13 +10,6 @@ namespace BanDienThoai.Models.Service
 {
     public class ProductCategoryService
     {
-        /// <summary>
-        /// category[donghonam, donghonu, null], pageIndex: số trang hiện tại, pageSize: số phần tử trong 1 trang
-        /// </summary>
-        /// <param name="category"></param>
-        /// <param name="pageIndex"></param>
-        /// <param name="pageSize"></param>
-        /// <returns></returns>
         public static IEnumerable<SANPHAM> LoadProductCategory(string category, ref int totalRecord, int pageIndex = 1, int pageSize = 8)
         {
             IEnumerable<SANPHAM> ListProductCategory = null;
@@ -74,16 +68,6 @@ namespace BanDienThoai.Models.Service
             }
             return ListProductCategory;
         }
-
-
-
-
-
-        
-        /// <summary>
-        /// Service load tất cả sản phẩm
-        /// </summary>
-        /// <returns></returns>
         public static List<ProductViewModel> LoadProductAll()
         {
             BANDIENTHOAIEntities db = new BANDIENTHOAIEntities();
@@ -142,6 +126,53 @@ namespace BanDienThoai.Models.Service
                 result.Add(productViewModel);
             }
             return result;
-        }   
-    }
+        }
+
+
+		
+        public static List<ProductViewModel> LoadProductPhone()
+		{
+			BANDIENTHOAIEntities db = new BANDIENTHOAIEntities();
+			List<ProductViewModel> result = new List<ProductViewModel>();
+			IEnumerable<SANPHAM> LoadProducDienThoai = new List<SANPHAM>();
+
+			LoadProducDienThoai = (from sp in db.SANPHAMs
+                                where sp.TypeProduct == TypeProduct.DIENTHOAI
+                                orderby sp.MASP descending
+                                select sp) ;
+
+			// Lấy promotion của sản phẩm
+			foreach (SANPHAM sp in LoadProducDienThoai)
+			{
+				int Promotion = PromotionService.GetPromotion(sp.MASP);
+				ProductViewModel productViewModel = new ProductViewModel { Product = sp, Promotion = Promotion };
+				result.Add(productViewModel);
+			}
+			return result;
+		}
+        public static List<ProductViewModel> LoadProductPhuKien()
+		{
+			BANDIENTHOAIEntities db = new BANDIENTHOAIEntities();
+			List<ProductViewModel> result = new List<ProductViewModel>();
+			IEnumerable<SANPHAM> LoadProductPhuKien = new List<SANPHAM>();
+
+			LoadProductPhuKien = (from sp in db.SANPHAMs
+                                where sp.TypeProduct == TypeProduct.PHUKIEN
+                                orderby sp.MASP descending
+                                select sp) ;
+
+			// Lấy promotion của sản phẩm
+			foreach (SANPHAM sp in LoadProductPhuKien)
+			{
+				int Promotion = PromotionService.GetPromotion(sp.MASP);
+				ProductViewModel productViewModel = new ProductViewModel { Product = sp, Promotion = Promotion };
+				result.Add(productViewModel);
+			}
+			return result;
+		}
+
+
+
+
+	}
 }
